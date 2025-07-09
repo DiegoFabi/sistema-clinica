@@ -28,7 +28,7 @@ namespace Clases
                 Nodo actual = frente;
                 Nodo anterior = null;
 
-                while (actual.dato.Prioridad)
+                while (actual != null && actual.dato.Prioridad)
                 {
                     anterior = actual;
                     actual = actual.sig;
@@ -103,6 +103,21 @@ namespace Clases
             return contador;
         }
 
+        public bool ExisteDNI(string dni)
+        {
+            Nodo actual = frente;
+
+            while (actual != null)
+            {
+                if (actual.dato.DNI == dni)
+                {
+                    return true; //dni existe
+                }
+                actual = actual.sig;
+            }
+
+            return false; //no hay dni
+        }
 
         public void DataGrid(DataGridView dgv)
         {
