@@ -58,9 +58,15 @@ namespace SistemaClinica
                 MessageBox.Show(validacion.mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if(!rbSi.Checked && !rbNo.Checked)
+
+            if (!rbSi.Checked && !rbNo.Checked)
             {
                 MessageBox.Show("Debe seleccionar si el paciente tiene prioridad.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cola.ExisteDNI(txtDNI.Text))
+            {
+                MessageBox.Show("Ya existe un paciente registrado con ese DNI.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             string dni = txtDNI.Text.Trim();
